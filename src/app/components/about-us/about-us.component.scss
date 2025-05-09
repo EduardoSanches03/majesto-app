@@ -1,6 +1,4 @@
-
 .about-us {
-
   position: relative;
   display: flex;
   background-color: #a11e2f;
@@ -14,7 +12,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 2;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -49,7 +47,6 @@
   position: absolute;
   height: 100%;
   width: auto;
-  min-width: 450%;
   transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -121,7 +118,7 @@
   width: 70vw;
   z-index: 10;
   transform: translateY(41%);
-
+  clip-path: inset(0 0 28% 0);
 }
 
 .estatue-wrapper {
@@ -138,3 +135,44 @@
   display: block;
 }
 
+//ÁREA DA RESPONSIVIDADE
+
+@media (min-width: 1700px) {
+  .column-container {
+    position: absolute;
+    width: 20%;
+    height: 188vh;
+    top: -32vh;
+    bottom: 0;
+    overflow: visible;
+    z-index: 8;
+  }
+
+  .left-column .column-image {
+    right: -140%;
+  }
+
+  .right-column .column-image {
+    left: -140%;
+  }
+
+  .ruler-container {
+    position: absolute;
+    left: 13vw;
+    z-index: 6;
+    width: 15.2vw;
+    height: auto;
+    transform: translateY(125.5%);
+  }
+
+  .estatue-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70vw;
+    height: 140vh;
+    z-index: 10;
+    transform: translateY(41%);
+    clip-path: inset(0 0 28% 0);
+  }
+}

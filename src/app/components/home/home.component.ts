@@ -11,6 +11,8 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { HeaderComponent } from './../header/header.component';
 import { CustomersComponent } from './../customers/customers.component';
 import { CasesComponent } from './../cases/cases.component';
+import { SolutionsComponent } from '../solutions/solutions.component';
+import { CustomersSlideComponent } from '../customers-slide/customers-slide.component';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +23,8 @@ import { CasesComponent } from './../cases/cases.component';
     CustomersComponent,
     CasesComponent,
     AboutUsComponent,
+    SolutionsComponent,
+    CustomersSlideComponent
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],

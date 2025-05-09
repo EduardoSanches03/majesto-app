@@ -1,0 +1,33 @@
+<section class="customers-slide">
+  <div class="background-container">
+    <img
+      ngSrc="assets/background-about-us.webp"
+      priority
+      width="1920"
+      height="1080"
+      alt="fundo dos slide de clientes"
+      class="background-img"
+    />
+  </div>
+  <div class="customers-content">
+    <div class="customers-content-text">
+      <h2>
+        <div class="spartan">CLIENTES</div>
+        <br />
+        <div class="augustus">QUE CONFIAM NA GENTE</div>
+      </h2>
+    </div>
+  </div>
+  <div class="customers-carousel-container">
+    <ngx-slick-carousel
+      class="carousel"
+      #slickModal="slick-carousel"
+      [config]="slideConfig">
+      <div ngxSlickItem *ngFor="let logo of logos" class="slide">
+        <div class="logo-container">
+          <img [src]="logo" alt="Logo de cliente" class="customer-logo">
+        </div>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+</section>
