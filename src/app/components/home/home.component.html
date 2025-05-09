@@ -1,0 +1,30 @@
+<section class="home-section">
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    class="background-video"
+    src="./assets/corporativeVideoAi.mp4"
+  ></video>
+
+  <app-header></app-header>
+</section>
+
+<app-customers></app-customers>
+
+<!-- Ref para lazy loading -->
+<div #casesRef></div>
+<!-- Componente carregado só quando visível -->
+<ng-container *ngIf="showCases">
+  <app-cases></app-cases>
+</ng-container>
+
+<!-- Ref para lazy loading -->
+<div #aboutUsRef></div>
+
+<!-- Componente carregado só quando visível -->
+<ng-container *ngIf="showAboutUs">
+  <app-about-us></app-about-us>
+</ng-container>

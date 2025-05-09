@@ -1,0 +1,140 @@
+
+.about-us {
+
+  position: relative;
+  display: flex;
+  background-color: #a11e2f;
+  width: 100%;
+  min-height: 130vh;
+  color: white;
+  overflow-x: clip;
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.column-container {
+  position: absolute;
+  width: 20%;
+  height: 192vh;
+  top: -36vh;
+  bottom: 0;
+  overflow: visible;
+  z-index: 8;
+}
+
+.left-column {
+  left: 0;
+}
+
+.right-column {
+  right: 0;
+}
+
+.column-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.column-image {
+  position: absolute;
+  height: 100%;
+  width: auto;
+  min-width: 450%;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  display: block;
+}
+
+.left-column .column-image {
+  right: -140%;
+}
+
+.right-column .column-image {
+  left: -140%;
+}
+
+.about-us-content {
+  display: flex;
+  justify-content: space-around;
+  justify-items: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  z-index: 2;
+}
+
+.about-us-tittle {
+  font-family: "League Spartan", sans-serif;
+  font-size: 65px;
+  margin-top: 23vh;
+  font-weight: 900;
+}
+
+.about-us-tittle span {
+  display: block;
+  transform: translateX(20%);
+}
+
+.about-us-text {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-top: 23vh;
+  font-size: 20px;
+}
+
+.about-us-text p {
+  margin-top: 20px;
+}
+
+.ruler-container {
+  position: absolute;
+  left: 12vw;
+  z-index: 6;
+  width: 15vw;
+  height: auto;
+  transform: translateY(140%);
+}
+
+.ruler-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.estatue-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70vw;
+  z-index: 10;
+  transform: translateY(41%);
+
+}
+
+.estatue-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.estatue-image {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  transform: scaleX(-1) translateX(8%);
+  object-fit: cover;
+  display: block;
+}
+

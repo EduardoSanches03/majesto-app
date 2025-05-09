@@ -1,0 +1,64 @@
+
+.customers {
+  width: 100%;
+  height: 100vh;
+}
+
+.customers-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+.customer {
+  position: relative;
+  width: calc(100% / 3);
+  height: 50%;
+  overflow: hidden;
+}
+
+/* Imagem de fundo (gif) */
+.customer .gif {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* Fundo escurecido no hover */
+.customer::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0.1, 0.1); /* sombra */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.customer:hover::before {
+  opacity: 1;
+}
+
+.customer .logo {
+  position: absolute;
+  width: 60%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+.customer:hover .logo {
+  opacity: 1;
+}
+
+.customer:hover .gif {
+  opacity: 0.2;
+}

@@ -1,0 +1,21 @@
+.home-section {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+app-header {
+  position: relative;
+  z-index: 10;
+  display: block;
+}
