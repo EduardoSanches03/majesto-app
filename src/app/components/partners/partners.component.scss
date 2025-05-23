@@ -1,0 +1,39 @@
+.partners-section {
+  background-color: #0c0c1c;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partners-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.partners-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  position: relative;
+  top: -20vh;
+}
+
+.partners-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+}
+
+.partners-logo {
+  max-width: 200px;
+  height: auto;
+}

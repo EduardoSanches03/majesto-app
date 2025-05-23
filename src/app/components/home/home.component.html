@@ -1,37 +1,24 @@
-<!--
 <section class="home-section">
   <video
     autoplay
     muted
     loop
     playsinline
-    preload="auto"
+    preload="metadata"
     class="background-video"
-    src="./assets/corporativeVideoAi.mp4"
+    src="./assets/corporativeVideoAi.webm"
+    poster="./assets/video-poster.jpg"
   ></video>
 
   <app-header></app-header>
 </section>
 
-<app-customers></app-customers>
-
-<ng-container *ngIf="showCases">
+<ng-container *ngIf="isPlatformBrowser(platformId)">
+  <app-customers></app-customers>
   <app-cases></app-cases>
-</ng-container>
-
-<ng-container>
   <app-about-us></app-about-us>
-</ng-container>
-
-<ng-container>
   <app-solutions></app-solutions>
-</ng-container>
-
-<ng-container>
   <app-customers-slide></app-customers-slide>
-</ng-container>
--->
-
-<ng-container>
   <app-success-cases></app-success-cases>
+  <app-partners></app-partners>
 </ng-container>
