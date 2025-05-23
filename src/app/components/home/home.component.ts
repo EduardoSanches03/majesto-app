@@ -13,6 +13,7 @@ import { CustomersComponent } from './../customers/customers.component';
 import { CasesComponent } from './../cases/cases.component';
 import { SolutionsComponent } from '../solutions/solutions.component';
 import { CustomersSlideComponent } from '../customers-slide/customers-slide.component';
+import { SuccessCasesComponent } from '../success-cases/success-cases.component';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,8 @@ import { CustomersSlideComponent } from '../customers-slide/customers-slide.comp
     CasesComponent,
     AboutUsComponent,
     SolutionsComponent,
-    CustomersSlideComponent
+    CustomersSlideComponent,
+    SuccessCasesComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],

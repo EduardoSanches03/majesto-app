@@ -1,0 +1,33 @@
+<section class="success-cases">
+  <div class="container">
+    <h2>Cases de sucesso</h2>
+  </div>
+</section>
+
+<div class="success-cases-container">
+  <!-- Video Section -->
+  <div class="video-section">
+    <video [src]="getCurrentTestimonial().videoUrl" controls>
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Testimonials Section -->
+  <div class="testimonials-section">
+    <div class="testimonial-box">
+      <div class="testimonial-content">
+        <p class="testimonial-text">{{ getCurrentTestimonial().text }}</p>
+        <p class="testimonial-author">- {{ getCurrentTestimonial().author }}</p>
+      </div>
+
+      <div class="navigation-arrows">
+        <button class="arrow-btn prev" (click)="previousTestimonial()">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="arrow-btn next" (click)="nextTestimonial()">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

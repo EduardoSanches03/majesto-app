@@ -1,3 +1,4 @@
+<!--
 <section class="home-section">
   <video
     autoplay
@@ -14,18 +15,11 @@
 
 <app-customers></app-customers>
 
-<!-- Ref para lazy loading -->
-<div #casesRef></div>
-<!-- Componente carregado só quando visível -->
 <ng-container *ngIf="showCases">
   <app-cases></app-cases>
 </ng-container>
 
-<!-- Ref para lazy loading -->
-<div #aboutUsRef></div>
-
-<!-- Componente carregado só quando visível -->
-<ng-container *ngIf="showAboutUs">
+<ng-container>
   <app-about-us></app-about-us>
 </ng-container>
 
@@ -35,4 +29,9 @@
 
 <ng-container>
   <app-customers-slide></app-customers-slide>
+</ng-container>
+-->
+
+<ng-container>
+  <app-success-cases></app-success-cases>
 </ng-container>
