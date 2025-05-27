@@ -3,25 +3,26 @@ import {
   AfterViewInit,
   ElementRef,
   ViewChild,
-  inject,
-  PLATFORM_ID,
 } from '@angular/core';
 import { isPlatformBrowser, NgIf } from '@angular/common';
+import { ComponentLoaderMixin } from '../component-loader.mixin';
 
 
 
 @Component({
   selector: 'app-cases',
   standalone: true,
-  imports: [NgIf],
+  imports: [],
   templateUrl: './cases.component.html',
   styleUrl: './cases.component.scss',
 })
-export class CasesComponent implements AfterViewInit{
-  private platformId = inject(PLATFORM_ID);
-
+export class CasesComponent extends ComponentLoaderMixin('cases') implements AfterViewInit{
+  constructor() {
+    super(); // IMPORTANTE: Chama o construtor do mixin
+  }
     @ViewChild('casesRef', { static: true }) casesRef!: ElementRef;
     showcases = false;
+    
 
     ngAfterViewInit(): void {
       if (isPlatformBrowser(this.platformId)) {

@@ -7,7 +7,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-
+import { ComponentLoaderMixin } from '../component-loader.mixin';
 interface Testimonial {
   id: number;
   text: string;
@@ -19,11 +19,11 @@ interface Testimonial {
 @Component({
   selector: 'app-success-cases',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule],
   templateUrl: './success-cases.component.html',
   styleUrls: ['./success-cases.component.scss'],
 })
-export class SuccessCasesComponent implements AfterViewInit, OnDestroy {
+export class SuccessCasesComponent extends ComponentLoaderMixin('success-cases') implements AfterViewInit, OnDestroy {
   currentIndex = 0;
   private resizeObserver: ResizeObserver;
   private timeouts: number[] = [];
@@ -59,6 +59,7 @@ export class SuccessCasesComponent implements AfterViewInit, OnDestroy {
   localFontSize = 16;
 
   constructor(private cdr: ChangeDetectorRef) {
+    super(); // MUITO IMPORTANTE!
     this.resizeObserver = new ResizeObserver(() => {
       this.adjustTextLayout();
     });

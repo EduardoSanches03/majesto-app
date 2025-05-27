@@ -5,6 +5,7 @@ import {
   SlickCarouselModule,
   SlickCarouselComponent,
 } from 'ngx-slick-carousel';
+import { ComponentLoaderMixin } from '../component-loader.mixin';
 
 @Component({
   selector: 'app-customers-slide',
@@ -13,7 +14,7 @@ import {
   templateUrl: './customers-slide.component.html',
   styleUrl: './customers-slide.component.scss',
 })
-export class CustomersSlideComponent {
+export class CustomersSlideComponent extends ComponentLoaderMixin('customers-slide') {
   @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
 
   slideConfig = {
