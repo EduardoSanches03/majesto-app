@@ -1,24 +1,29 @@
-  <section class="home-section">
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      class="background-video"
-      src="./assets/corporativeVideoAi.webm"
-      poster="./assets/video-poster.jpg"
-    ></video>
+<section class="home-section">
+  <video
+    #backgroundVideo
+    autoplay
+    muted="true"
+    [muted]="true"
+    loop
+    playsinline
+    preload="metadata"
+    class="background-video"
+    src="./assets/corporativeVideoAi.webm"
+    [volume]="0"
+    (loadedmetadata)="ensureVideoMuted($event)"
+    (canplay)="ensureVideoMuted($event)"
+    (play)="ensureVideoMuted($event)"
+  ></video>
 
-    <app-header></app-header>
-  </section>
+  <app-header></app-header>
+</section>
 
-  <ng-container *ngIf="isPlatformBrowser(platformId)">
-    <app-customers></app-customers>
-    <app-cases></app-cases>
-    <app-about-us></app-about-us>
-    <app-solutions></app-solutions>
-    <app-customers-slide></app-customers-slide>
-    <app-success-cases></app-success-cases>
-    <app-partners></app-partners>
-  </ng-container>
+<ng-container *ngIf="isPlatformBrowser(platformId)">
+  <app-customers></app-customers>
+  <app-cases></app-cases>
+  <app-about-us></app-about-us>
+  <app-solutions></app-solutions>
+  <app-customers-slide></app-customers-slide>
+  <app-success-cases></app-success-cases>
+  <app-partners></app-partners>
+</ng-container>

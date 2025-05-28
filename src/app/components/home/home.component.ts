@@ -19,7 +19,7 @@ import { SuccessCasesComponent } from '../success-cases/success-cases.component'
 import { PartnersComponent } from '../partners/partners.component';
 import { LoadingComponent } from '../loading/loading.component';
 import { LoadingService } from '../../services/loading/loading.service';
-import { ComponentLoaderMixin } from '../component-loader.mixin';
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -44,14 +44,20 @@ import { ComponentLoaderMixin } from '../component-loader.mixin';
     <div class="main-content" *ngIf="!(loadingService.loading$ | async)">
       <section class="home-section">
         <video
+          #backgroundVideo
           autoplay
-          muted
+          muted="true"
+          [muted]="true"
           loop
           playsinline
           preload="metadata"
           class="background-video"
           src="./assets/corporativeVideoAi.webm"
           poster="./assets/video-poster.jpg"
+          [volume]="0"
+          (loadedmetadata)="ensureVideoMuted($event)"
+          (canplay)="ensureVideoMuted($event)"
+          (play)="ensureVideoMuted($event)"
         ></video>
 
         <app-header></app-header>
@@ -70,69 +76,136 @@ import { ComponentLoaderMixin } from '../component-loader.mixin';
   `,
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent extends ComponentLoaderMixin('home') implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('casesRef') casesRef!: ElementRef;
   @ViewChild('aboutUsRef') aboutUsRef!: ElementRef;
+  @ViewChild('backgroundVideo') backgroundVideo!: ElementRef<HTMLVideoElement>;
 
-  constructor() {
-    super(); // MUITO IMPORTANTE!
-  }
+  platformId = inject(PLATFORM_ID);
+  isPlatformBrowser = isPlatformBrowser;
+
+  constructor(public loadingService: LoadingService) {}
 
   ngOnInit(): void {
-    // Registra todos os componentes que precisam carregar
-    this.loadingService.registerComponent('header');
-    this.loadingService.registerComponent('customers');
-    this.loadingService.registerComponent('cases');
-    this.loadingService.registerComponent('about-us');
-    this.loadingService.registerComponent('solutions');
-    this.loadingService.registerComponent('customers-slide');
-    this.loadingService.registerComponent('success-cases');
-    this.loadingService.registerComponent('partners');
-
     // Inicia o carregamento
     this.loadingService.startLoading();
   }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      // Aguarda um tempo para garantir que os componentes foram inicializados
+      // Setup do vídeo em background
+      this.setupBackgroundVideo();
+
+      // Aguarda os componentes renderizarem e depois inicia o carregamento das imagens
       setTimeout(() => {
-        this.checkComponentsLoaded();
-      }, 1000);
+        this.startImageLoading();
+      }, 1000); // 1 segundo
     }
   }
 
-  private checkComponentsLoaded(): void {
-    // Simula o carregamento dos componentes
-    // Você precisará implementar isso em cada componente filho
-    console.log('Verificando se componentes foram carregados...');
+  private setupBackgroundVideo(): void {
+    // Pequeno delay para garantir que o DOM está pronto
+    setTimeout(() => {
+      const video = this.backgroundVideo?.nativeElement;
+      if (!video) {
+        console.warn('⚠️ Elemento de vídeo não encontrado');
+        return;
+      }
 
-    // Marca os componentes como carregados (temporário)
-    setTimeout(() => this.loadingService.markComponentAsLoaded('header'), 100);
-    setTimeout(
-      () => this.loadingService.markComponentAsLoaded('customers'),
-      200
-    );
-    setTimeout(() => this.loadingService.markComponentAsLoaded('cases'), 300);
-    setTimeout(
-      () => this.loadingService.markComponentAsLoaded('about-us'),
-      400
-    );
-    setTimeout(
-      () => this.loadingService.markComponentAsLoaded('solutions'),
-      500
-    );
-    setTimeout(
-      () => this.loadingService.markComponentAsLoaded('customers-slide'),
-      600
-    );
-    setTimeout(
-      () => this.loadingService.markComponentAsLoaded('success-cases'),
-      700
-    );
-    setTimeout(
-      () => this.loadingService.markComponentAsLoaded('partners'),
-      800
-    );
+      // Força as configurações do vídeo
+      video.muted = true;
+      video.volume = 0;
+      video.autoplay = true;
+      video.loop = true;
+      video.playsInline = true;
+
+      console.log('🎬 Configurando vídeo de fundo...');
+      console.log('Video muted:', video.muted);
+      console.log('Video volume:', video.volume);
+
+      // Tenta reproduzir o vídeo
+      this.playVideo(video);
+
+      // Listener para garantir que o vídeo continue mutado
+      video.addEventListener('volumechange', () => {
+        if (!video.muted || video.volume > 0) {
+          console.log('🔇 Forçando vídeo a ficar mutado');
+          video.muted = true;
+          video.volume = 0;
+        }
+      });
+
+      // Listener para quando o vídeo começar a tocar
+      video.addEventListener('play', () => {
+        console.log('▶️ Vídeo começou a reproduzir');
+        video.muted = true;
+        video.volume = 0;
+      });
+    }, 100);
+  }
+
+  private async playVideo(video: HTMLVideoElement): Promise<void> {
+    try {
+      await video.play();
+      console.log('✅ Vídeo reproduzindo com sucesso (mutado)');
+    } catch (error) {
+      console.warn('⚠️ Erro ao reproduzir vídeo automaticamente:', error);
+
+      // Fallback: tenta novamente após interação do usuário
+      this.setupUserInteractionFallback(video);
+    }
+  }
+
+  private setupUserInteractionFallback(video: HTMLVideoElement): void {
+    console.log('🖱️ Aguardando interação do usuário para reproduzir vídeo...');
+
+    const playOnInteraction = async () => {
+      try {
+        video.muted = true;
+        video.volume = 0;
+        await video.play();
+        console.log('✅ Vídeo reproduzindo após interação do usuário');
+
+        // Remove os listeners após sucesso
+        document.removeEventListener('click', playOnInteraction);
+        document.removeEventListener('touchstart', playOnInteraction);
+        document.removeEventListener('keydown', playOnInteraction);
+      } catch (error) {
+        console.warn('⚠️ Ainda não foi possível reproduzir vídeo:', error);
+      }
+    };
+
+    // Adiciona listeners para primeira interação
+    document.addEventListener('click', playOnInteraction, { once: true });
+    document.addEventListener('touchstart', playOnInteraction, { once: true });
+    document.addEventListener('keydown', playOnInteraction, { once: true });
+  }
+
+  // Método chamado pelos eventos do template
+  ensureVideoMuted(event: Event): void {
+    const video = event.target as HTMLVideoElement;
+    if (video) {
+      video.muted = true;
+      video.volume = 0;
+      console.log(
+        '🔇 Garantindo que vídeo está mutado via evento:',
+        event.type
+      );
+    }
+  }
+
+  private async startImageLoading(): Promise<void> {
+    try {
+      console.log('🎯 Iniciando processo de carregamento das mídias...');
+
+      // Aguarda todas as imagens e vídeos carregarem (com timeout de segurança)
+      await this.loadingService.loadAllMedia(); // Usar o novo método que carrega vídeos também
+
+      console.log('🎉 Processo de carregamento concluído!');
+    } catch (error) {
+      console.error('💥 Erro durante o carregamento:', error);
+      // Sempre libera o site, mesmo com erro
+      this.loadingService.finishLoading();
+    }
   }
 }
