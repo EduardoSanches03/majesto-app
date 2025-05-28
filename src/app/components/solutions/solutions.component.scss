@@ -4,7 +4,7 @@
   width: 100%;
   height: 100vh;
   z-index: 11;
-  margin-top: 18vh;
+  margin-top: 19vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -16,11 +16,10 @@
 }
 .background-img {
   position: absolute;
-  top: 26vh;
-  left: 38vw;
   z-index: 2;
-  width: 100vw;
+  width: 100%;
   height: auto;
+  right: 0;
   pointer-events: none;
 }
 
@@ -109,3 +108,11 @@
   border: 5px solid #0c0c1c;
 }
 
+@media (min-width: 1490px) and (max-width: 1700px) {
+  .solutions-content {
+    right: 6vw;
+  }
+  .solutions-hover {
+    left: 6vw;
+  }
+}

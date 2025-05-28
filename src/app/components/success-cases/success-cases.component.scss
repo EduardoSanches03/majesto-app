@@ -229,13 +229,9 @@
   top: 55%;
   position: absolute;
 }
-@media (max-width: 768px) {
-  .success-cases-container {
-    flex-direction: column;
-  }
 
-  .video-section,
+@media (min-width: 1490px) and (max-width: 1700px) {
   .testimonials-section {
-    width: 100%;
+    padding-left: 2vw;
   }
 }
