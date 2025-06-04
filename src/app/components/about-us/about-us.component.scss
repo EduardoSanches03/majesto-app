@@ -135,7 +135,7 @@
   width: 100%;
   height: auto;
   max-height: none;
-  transform: scaleX(-1) translateX(8%);
+  transform: translateX(-3%);
   object-fit: cover;
   display: block;
 }
@@ -146,8 +146,8 @@
   .column-container {
     position: absolute;
     width: 20%;
-    height: 198vh;
-    top: -39vh;
+    height: 197vh;
+    top: -40vh;
     bottom: 0;
     overflow: visible;
     z-index: 8;
@@ -167,11 +167,11 @@
 
   .ruler-container {
     position: absolute;
-    left: 13vw;
+    left: 16%;
     z-index: 6;
     width: 15.2vw;
     height: auto;
-    transform: translateY(134%);
+    transform: translateY(138%);
   }
 
   .estatue-container {
