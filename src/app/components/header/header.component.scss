@@ -5,20 +5,41 @@
   padding: 0 50px;
   width: 100vw;
   margin-top: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  background: transparent;
+
+  &:not(.visible) {
+    transform: translateY(-150%);
+  }
+
+  &.scrolled-up {
+    background: rgba(0, 0, 0, 0.9);
+    margin-top: 0;
+    padding: 20px 50px;
+    height: 140px;
+  }
 }
 
 .logo {
   display: flex;
   align-items: center;
-  z-index: 1001;
+  z-index: 10000;
+  position: relative;
+  margin-top: 10px;
 }
 
 .span-logo {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-left: 10px;
-  z-index: 1001;
+  z-index: 10000;
+  position: relative;
 }
 
 .majesto-logo-span {
@@ -27,12 +48,18 @@
   font-weight: 500;
   font-size: 26px;
   letter-spacing: 4px;
+  line-height: 1;
+  position: relative;
+  z-index: 10000;
 }
 
 .majesto-logo-span2 {
   color: white;
   font-family: "Augustus", sans-serif;
   font-weight: 300;
+  line-height: 1;
+  position: relative;
+  z-index: 10000;
 }
 
 .menu-icon {
@@ -40,9 +67,130 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  z-index: 10000;
+  position: relative;
 }
 
 .menu-icon img {
   width: 40px;
   height: 40px;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+
+  &.active {
+    pointer-events: all;
+  }
+}
+
+.circle {
+  position: fixed;
+  width: 0;
+  height: 0;
+  background-color: #000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 9998;
+  opacity: 0;
+
+  .menu-overlay.active & {
+    width: 300vw;
+    height: 300vw;
+    opacity: 1;
+  }
+}
+
+.close-button {
+  position: fixed;
+  top: 30px;
+  right: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10000;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+  position: relative;
+
+  .menu-overlay.active & {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.menu-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  padding-top: 300px;
+
+  .menu-overlay.active & {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    z-index: 10000;
+  }
+
+  li {
+    margin: 35px 0;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10000;
+
+    .menu-overlay.active & {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{0.1 * $i}s;
+      }
+    }
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 10000;
+
+    &:hover {
+      color: #ccc;
+    }
+  }
 }

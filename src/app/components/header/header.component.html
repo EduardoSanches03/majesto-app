@@ -1,4 +1,8 @@
-<header class="app-header">
+<header
+  class="app-header"
+  [class.visible]="isVisible"
+  [class.scrolled-up]="isScrolledUp"
+>
   <div class="logo">
     <img ngSrc="./assets/Logo.png" width="64" height="96" />
     <div class="span-logo">
@@ -9,4 +13,39 @@
   <button (click)="toggleMenu($event)" class="menu-icon">
     <img ngSrc="./assets/MenuBars.png" width="30" height="20" />
   </button>
+
+  <!-- Menu overlay -->
+  <div class="menu-overlay" [class.active]="menuOpen">
+    <div
+      class="circle"
+      [style.left.px]="circleX"
+      [style.top.px]="circleY"
+    ></div>
+    <button class="close-button" (click)="toggleMenu($event)">
+      <svg
+        width="60"
+        height="60"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18 6L6 18M6 6L18 18"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+    <nav class="menu-content">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#solutions">Soluções</a></li>
+        <li><a href="#cases">Casos</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>

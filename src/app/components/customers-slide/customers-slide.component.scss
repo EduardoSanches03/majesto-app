@@ -7,6 +7,7 @@
   height: 45vh;
   background-color: #a11e2f;
   overflow: hidden;
+  z-index: 1;
 }
 
 .background-img {
@@ -17,13 +18,13 @@
   height: 100%;
   object-fit: cover;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
 .customers-content {
   position: relative;
   color: white;
-  z-index: 12;
+  z-index: 2;
   line-height: 0.4;
   left: 8vw;
   width: 400px;
@@ -50,7 +51,7 @@
 .customers-carousel-container {
   position: relative;
   width: 100%;
-  z-index: 12;
+  z-index: 2;
   overflow: hidden;
   left: 20vw;
 }
@@ -136,7 +137,6 @@
 // Responsividade
 @media (min-width: 1490px) and (max-width: 1700px) {
   .customers-content {
-    left: 4vw;
+    left: 5vw;
   }
 }
-
