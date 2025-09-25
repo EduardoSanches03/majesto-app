@@ -5,7 +5,6 @@ import {
   SlickCarouselModule,
   SlickCarouselComponent,
 } from 'ngx-slick-carousel';
-import { ComponentLoaderMixin } from '../component-loader.mixin';
 
 @Component({
   selector: 'app-customers-slide',
@@ -14,7 +13,7 @@ import { ComponentLoaderMixin } from '../component-loader.mixin';
   templateUrl: './customers-slide.component.html',
   styleUrl: './customers-slide.component.scss',
 })
-export class CustomersSlideComponent extends ComponentLoaderMixin('customers-slide') {
+export class CustomersSlideComponent {
   @ViewChild('slickModal') slickModal!: SlickCarouselComponent;
 
   slideConfig = {
@@ -64,16 +63,15 @@ export class CustomersSlideComponent extends ComponentLoaderMixin('customers-sli
   };
 
   logos = [
-    'assets/Logo.png',
-    'assets/Logo.png',
-    'assets/Logo.png',
-    'assets/Logo.png',
-    'assets/Logo.png',
-    'assets/Logo.png',
-    'assets/Logo.png',
-    'assets/Logo.png',
-    'assets/Logo.png',
-    'assets/Logo.png',
+    'assets/color-icon/bubble-color.png',
+    'assets/color-icon/10pasteis-color.png',
+    'assets/color-icon/apolar-color.png',
+    'assets/color-icon/asiaflavors-color.png',
+    'assets/color-icon/continental-color.png',
+    'assets/color-icon/cookie-color.png',
+    'assets/color-icon/milk-color.png',
+    'assets/color-icon/luahs-color.png',
+
   ];
   next() {
     if (this.slickModal) {

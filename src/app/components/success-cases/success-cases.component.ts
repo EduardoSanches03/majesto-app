@@ -5,9 +5,15 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   OnDestroy,
+  inject,
+  PLATFORM_ID,
 } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ComponentLoaderMixin } from '../component-loader.mixin';
+import {
+  CommonModule,
+  NgOptimizedImage,
+  isPlatformBrowser,
+} from '@angular/common';
+
 interface Testimonial {
   id: number;
   text: string;
@@ -23,9 +29,9 @@ interface Testimonial {
   templateUrl: './success-cases.component.html',
   styleUrls: ['./success-cases.component.scss'],
 })
-export class SuccessCasesComponent extends ComponentLoaderMixin('success-cases') implements AfterViewInit, OnDestroy {
+export class SuccessCasesComponent implements AfterViewInit, OnDestroy {
   currentIndex = 0;
-  private resizeObserver: ResizeObserver;
+  private resizeObserver: ResizeObserver | null = null;
   private timeouts: number[] = [];
 
   testimonials: Testimonial[] = [
@@ -57,23 +63,26 @@ export class SuccessCasesComponent extends ComponentLoaderMixin('success-cases')
   localWidth: number | null = null;
   authorFontSize = 32;
   localFontSize = 16;
+  platformId = inject(PLATFORM_ID);
 
-  constructor(private cdr: ChangeDetectorRef) {
-    super(); // MUITO IMPORTANTE!
-    this.resizeObserver = new ResizeObserver(() => {
-      this.adjustTextLayout();
-    });
-  }
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
-    this.adjustTextLayout();
-    if (this.authorRef?.nativeElement) {
-      this.resizeObserver.observe(this.authorRef.nativeElement);
+    if (isPlatformBrowser(this.platformId)) {
+      this.resizeObserver = new ResizeObserver(() => {
+        this.adjustTextLayout();
+      });
+      this.adjustTextLayout();
+      if (this.authorRef?.nativeElement) {
+        this.resizeObserver.observe(this.authorRef.nativeElement);
+      }
     }
   }
 
   ngOnDestroy() {
-    this.resizeObserver.disconnect();
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+    }
     this.timeouts.forEach((timeout) => clearTimeout(timeout));
   }
 
@@ -149,31 +158,27 @@ export class SuccessCasesComponent extends ComponentLoaderMixin('success-cases')
     const local = this.getCurrentTestimonial().local || '';
     if (local.length <= 1) return 'normal';
 
-    // Cria um span temporário para medir o tamanho real do texto (considerando a fonte e tamanho)
     const tempSpan = document.createElement('span');
     tempSpan.style.visibility = 'hidden';
     tempSpan.style.position = 'absolute';
-    tempSpan.style.fontSize = '2rem'; // igual ao .testimonial-author
-    tempSpan.style.fontWeight = '400'; // igual ao .testimonial-author
-    tempSpan.style.fontFamily = 'inherit'; // ajuste se usar fonte customizada
+    tempSpan.style.fontSize = '2rem';
+    tempSpan.style.fontWeight = '400';
+    tempSpan.style.fontFamily = 'inherit';
     tempSpan.innerText = author;
     document.body.appendChild(tempSpan);
     const authorWidth = tempSpan.offsetWidth;
 
     tempSpan.innerText = local;
-    tempSpan.style.fontSize = '1.1rem'; // igual ao .testimonial-local
-    tempSpan.style.fontWeight = '400'; // igual ao .testimonial-local
+    tempSpan.style.fontSize = '1.1rem';
+    tempSpan.style.fontWeight = '400';
     const localWidth = tempSpan.offsetWidth;
 
     document.body.removeChild(tempSpan);
 
-    // Calcula o letter-spacing necessário
     const extraSpace = authorWidth - localWidth;
     const spacing = extraSpace / (local.length - 1);
 
-    // Se spacing for negativo ou muito pequeno, retorna normal
     if (spacing <= 0 || isNaN(spacing) || !isFinite(spacing)) return 'normal';
-    // Limita o máximo para evitar espaçamento exagerado
     if (spacing > 50) return 'normal';
     return `${spacing}px`;
   }

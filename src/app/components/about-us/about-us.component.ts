@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { ComponentLoaderMixin } from '../component-loader.mixin';
 
 @Component({
   selector: 'app-about-us',
@@ -9,8 +8,4 @@ import { ComponentLoaderMixin } from '../component-loader.mixin';
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.scss',
 })
-export class AboutUsComponent extends ComponentLoaderMixin('about-us') {
-  constructor() {
-    super(); // MUITO IMPORTANTE!
-  }
-}
+export class AboutUsComponent {}

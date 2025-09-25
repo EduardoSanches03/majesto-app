@@ -17,8 +17,6 @@ import { SolutionsComponent } from '../solutions/solutions.component';
 import { CustomersSlideComponent } from '../customers-slide/customers-slide.component';
 import { SuccessCasesComponent } from '../success-cases/success-cases.component';
 import { PartnersComponent } from '../partners/partners.component';
-import { LoadingComponent } from '../loading/loading.component';
-import { LoadingService } from '../../services/loading/loading.service';
 
 @Component({
   selector: 'app-home',
@@ -33,7 +31,6 @@ import { LoadingService } from '../../services/loading/loading.service';
     CustomersSlideComponent,
     SuccessCasesComponent,
     PartnersComponent,
-    LoadingComponent, // Adiciona o componente de loading
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './home.component.html',
@@ -47,22 +44,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
   platformId = inject(PLATFORM_ID);
   isPlatformBrowser = isPlatformBrowser;
 
-  constructor(public loadingService: LoadingService) {}
-
   ngOnInit(): void {
-    // Inicia o carregamento
-    this.loadingService.startLoading();
+    // Removido: lógica de loading
   }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       // Setup do vídeo em background
       this.setupBackgroundVideo();
-
-      // Aguarda os componentes renderizarem e depois inicia o carregamento das imagens
-      setTimeout(() => {
-        this.startImageLoading();
-      }, 1000); // 1 segundo
     }
   }
 
@@ -154,21 +143,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
         '🔇 Garantindo que vídeo está mutado via evento:',
         event.type
       );
-    }
-  }
-
-  private async startImageLoading(): Promise<void> {
-    try {
-      console.log('🎯 Iniciando processo de carregamento das mídias...');
-
-      // Aguarda todas as imagens e vídeos carregarem (com timeout de segurança)
-      await this.loadingService.loadAllMedia(); // Usar o novo método que carrega vídeos também
-
-      console.log('🎉 Processo de carregamento concluído!');
-    } catch (error) {
-      console.error('💥 Erro durante o carregamento:', error);
-      // Sempre libera o site, mesmo com erro
-      this.loadingService.finishLoading();
     }
   }
 }

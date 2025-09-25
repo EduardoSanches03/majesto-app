@@ -3,7 +3,7 @@
   display: flex;
   background-color: #a11e2f;
   width: 100%;
-  min-height: 130vh;
+  min-height: 128vh;
   color: white;
   overflow-x: clip;
   z-index: 1;
@@ -28,8 +28,8 @@
 .column-container {
   position: absolute;
   width: 20%;
-  height: 192vh;
-  top: -36vh;
+  height: 185vh;
+  top: -32vh;
   bottom: 0;
   overflow: visible;
   z-index: 2;
@@ -92,7 +92,7 @@
 .about-us-text {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 42%;
   margin-top: 23vh;
   font-size: 20px;
 }
@@ -103,11 +103,11 @@
 
 .ruler-container {
   position: absolute;
-  left: 12vw;
+  left: 16vw;
   z-index: 2;
-  width: 15vw;
+  width: 16vw;
   height: auto;
-  transform: translateY(140%);
+  transform: translateY(130%);
 }
 
 .ruler-image {
@@ -124,7 +124,7 @@
   width: 70vw;
   z-index: 2;
   transform: translateY(41%);
-  clip-path: inset(0 0 28% 0);
+  clip-path: inset(0 0 24% 0);
 }
 
 .estatue-wrapper {
@@ -139,6 +139,11 @@
   transform: translateX(-3%);
   object-fit: cover;
   display: block;
+}
+
+ul{
+  list-style-type: disc;
+  margin-left: 40px;
 }
 
 //ÁREA DA RESPONSIVIDADE

@@ -1,4 +1,3 @@
-
 .customers {
   width: 100%;
   height: 100vh;
@@ -17,14 +16,27 @@
   overflow: hidden;
 }
 
-/* Imagem de fundo (gif) */
-.customer .gif {
+/* Vídeo de fundo */
+.customer .video {
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: opacity 0.3s ease;
   z-index: 1;
+  background: #000;
+  pointer-events: none; /* evita interação e exibição de menus contextuais */
+  user-select: none;
+}
+
+/* Oculta controles nativos em navegadores WebKit/Blink, caso apareçam */
+.customer .video::-webkit-media-controls-enclosure,
+.customer .video::-webkit-media-controls,
+.customer .video::-webkit-media-controls-panel,
+.customer .video::-webkit-media-controls-play-button,
+.customer .video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
 }
 
 /* Fundo escurecido no hover */
@@ -59,6 +71,6 @@
   opacity: 1;
 }
 
-.customer:hover .gif {
+.customer:hover .video {
   opacity: 0.2;
 }

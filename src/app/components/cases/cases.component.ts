@@ -3,11 +3,10 @@ import {
   AfterViewInit,
   ElementRef,
   ViewChild,
+  inject,
+  PLATFORM_ID,
 } from '@angular/core';
 import { isPlatformBrowser, NgIf } from '@angular/common';
-import { ComponentLoaderMixin } from '../component-loader.mixin';
-
-
 
 @Component({
   selector: 'app-cases',
@@ -16,24 +15,25 @@ import { ComponentLoaderMixin } from '../component-loader.mixin';
   templateUrl: './cases.component.html',
   styleUrl: './cases.component.scss',
 })
-export class CasesComponent extends ComponentLoaderMixin('cases') implements AfterViewInit{
-  constructor() {
-    super(); // IMPORTANTE: Chama o construtor do mixin
-  }
-    @ViewChild('casesRef', { static: true }) casesRef!: ElementRef;
-    showcases = false;
-    
+export class CasesComponent implements AfterViewInit {
+  constructor() {}
+  @ViewChild('casesRef', { static: true }) casesRef!: ElementRef;
+  showcases = false;
+  platformId = inject(PLATFORM_ID);
 
-    ngAfterViewInit(): void {
-      if (isPlatformBrowser(this.platformId)) {
-        const observer = new IntersectionObserver(([entry]) => {
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
           if (entry.isIntersecting) {
             this.showcases = true;
             observer.disconnect(); // evita observar de novo
           }
-        }, { threshold: 0.1 });
+        },
+        { threshold: 0.1 }
+      );
 
-        observer.observe(this.casesRef.nativeElement);
-      }
+      observer.observe(this.casesRef.nativeElement);
     }
+  }
 }
