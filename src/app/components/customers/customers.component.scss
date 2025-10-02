@@ -45,7 +45,10 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0.1, 0.1); /* sombra */
+  background: rgba(0, 0, 0, 0.8); /* sombra */
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 2;

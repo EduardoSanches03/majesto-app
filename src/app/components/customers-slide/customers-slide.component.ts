@@ -63,15 +63,14 @@ export class CustomersSlideComponent {
   };
 
   logos = [
-    'assets/color-icon/bubble-color.png',
-    'assets/color-icon/10pasteis-color.png',
-    'assets/color-icon/apolar-color.png',
-    'assets/color-icon/asiaflavors-color.png',
-    'assets/color-icon/continental-color.png',
-    'assets/color-icon/cookie-color.png',
-    'assets/color-icon/milk-color.png',
-    'assets/color-icon/luahs-color.png',
-
+    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/10pasteis%20white.png',
+    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/apolar%20white.png',
+    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/asia%20white.png',
+    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/bubble%20white.png',
+    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/continental%20white.png',
+    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/cookie%20white.png',
+    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/luah%20white.png',
+    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/sirene%20white.png',
   ];
   next() {
     if (this.slickModal) {

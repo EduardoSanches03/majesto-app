@@ -17,6 +17,7 @@ import { SolutionsComponent } from '../solutions/solutions.component';
 import { CustomersSlideComponent } from '../customers-slide/customers-slide.component';
 import { SuccessCasesComponent } from '../success-cases/success-cases.component';
 import { PartnersComponent } from '../partners/partners.component';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-home',
@@ -31,7 +32,8 @@ import { PartnersComponent } from '../partners/partners.component';
     CustomersSlideComponent,
     SuccessCasesComponent,
     PartnersComponent,
-  ],
+    FooterComponent
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],

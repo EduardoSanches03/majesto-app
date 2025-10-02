@@ -19,30 +19,3 @@ app-header {
   z-index: 10;
   display: block;
 }
-
-.main-content {
-  // Animação suave quando o conteúdo aparece
-  animation: fadeInContent 0.8s ease-in-out;
-  
-  // Garante que o conteúdo só apareça quando não está carregando
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-@keyframes fadeInContent {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-// Estilos para garantir que o loading cubra tudo
-:host {
-  display: block;
-  position: relative;
-  min-height: 100vh;
-}

@@ -5,6 +5,7 @@ import {
   HostListener,
   inject,
   PLATFORM_ID,
+  AfterViewInit,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -15,7 +16,7 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   menuOpen = false;
   circleX = 0;
   circleY = 0;
@@ -35,6 +36,31 @@ export class HeaderComponent implements OnInit {
         this.circleY = rect.top + rect.height / 2;
       }
     }
+  }
+
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.setupMenuCloseOnClick();
+    }
+  }
+
+  setupMenuCloseOnClick() {
+    // Seleciona todos os links que começam com #
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Fecha o menu
+        if (this.menuOpen) {
+          this.menuOpen = false;
+          document.body.style.overflow = '';
+        }
+
+        // Faz o scroll suave
+        const target = document.querySelector(link.getAttribute('href')!);
+        target?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
   }
 
   @HostListener('window:scroll', ['$event'])

@@ -1,0 +1,68 @@
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: black;
+  height: 40vh;
+  font-family: "League Spartan", sans-serif;
+  font-size: 20px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: first baseline;
+  gap: 10px;
+  color: #fff;
+  padding: 20px;
+}
+.footer-column a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  text-align: center;
+  margin-left: 20px;
+}
+
+.logo-text :nth-child(1) {
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+.logo-text :nth-child(2) {
+  font-weight: 20px;
+    font-family: "Augustus", sans-serif;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.whatsapp {
+  display: flex;
+  align-items: center;
+}
+
+.whatsapp :nth-child(1) {
+  margin: 0 10px;
+  font-size: 20px;
+}
+
+.email a {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+}
+.socials{
+  display: flex;
+  gap: 20px;
+  font-size: 30px;
+}

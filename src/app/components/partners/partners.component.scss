@@ -1,6 +1,6 @@
 .partners-section {
   background-color: #0c0c1c;
-  height: 80vh;
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +22,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 800;
   position: relative;
-  top: -20vh;
+  top: -10vh;
 }
 
 .partners-logo-container {
@@ -34,6 +34,6 @@
 }
 
 .partners-logo {
-  max-width: 200px;
+  width: 300px;
   height: auto;
 }
