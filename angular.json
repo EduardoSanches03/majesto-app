@@ -19,7 +19,7 @@
           "options": {
             "outputPath": "dist",
             "index": "src/index.html",
-            "baseHref": "/majesto-app/",
+            "baseHref": "/",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
