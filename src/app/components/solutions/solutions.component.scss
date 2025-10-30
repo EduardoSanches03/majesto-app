@@ -4,7 +4,7 @@
   width: 100%;
   height: 100vh;
   z-index: 1;
-  margin-top: 19vh;
+
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -75,6 +75,7 @@
   font-weight: 200;
   margin-top: 3vh;
   margin-left: 0.3vw;
+  font-size: 1.5rem;
 }
 
 .solutions-hover {
@@ -114,5 +115,15 @@
   }
   .solutions-hover {
     left: 6vw;
+  }
+}
+
+@media (max-width: 1280px) {
+  .solutions-content {
+    right: 40px;
+  }
+  .solutions-hover {
+    font-size: 2.5rem;
+    left: 40px;
   }
 }

@@ -11,7 +11,6 @@ import {
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { HeaderComponent } from './../header/header.component';
 import { CustomersComponent } from './../customers/customers.component';
-import { CasesComponent } from './../cases/cases.component';
 import { AboutUsComponent } from './../about-us/about-us.component';
 import { SolutionsComponent } from '../solutions/solutions.component';
 import { CustomersSlideComponent } from '../customers-slide/customers-slide.component';
@@ -26,7 +25,6 @@ import { FooterComponent } from "../footer/footer.component";
     CommonModule,
     HeaderComponent,
     CustomersComponent,
-    CasesComponent,
     AboutUsComponent,
     SolutionsComponent,
     CustomersSlideComponent,

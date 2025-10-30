@@ -1,193 +1,153 @@
-.about-us {
+.about-us-section {
   position: relative;
-  display: flex;
+  height: 100%;
+  overflow: hidden;
+  background-image: url("https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/background-about-us.webp");
+  background-size: cover;
   background-color: #a11e2f;
-  width: 100%;
-  min-height: 128vh;
-  color: white;
-  overflow-x: clip;
-  z-index: 1;
 }
 
-.background-img {
+.pillar {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
-}
-
-.background-img-bottom {
-  position: absolute;
-  bottom: -20vh;
-}
-
-.column-container {
-  position: absolute;
-  width: 20%;
-  height: 185vh;
-  top: -32vh;
-  bottom: 0;
-  overflow: visible;
+  top: -30px;
+  height: 1050px;
+  width: 1100px;
   z-index: 2;
+  margin: 0;
 }
 
-.left-column {
+.pillar-left {
   left: 0;
+  transform: translateX(-47%);
 }
 
-.right-column {
+.pillar-right {
   right: 0;
+  transform: translateX(47%);
 }
 
-.column-wrapper {
-  position: relative;
+.pillar img {
   width: 100%;
   height: 100%;
+  object-fit: fill;
+  object-position: center;
 }
 
-.column-image {
+.statue-container {
   position: absolute;
-  height: 100%;
   width: auto;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-font-smoothing: subpixel-antialiased;
-  display: block;
-}
-
-.left-column .column-image {
-  right: -140%;
-}
-
-.right-column .column-image {
-  left: -140%;
-}
-
-.about-us-content {
-  display: flex;
-  justify-content: space-around;
-  justify-items: center;
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px;
+  height: 1000px;
+  top: 300px;
+  left: -360px;
   z-index: 2;
 }
 
-.about-us-tittle {
-  font-family: "League Spartan", sans-serif;
-  font-size: 65px;
-  margin-top: 23vh;
-  font-weight: 900;
-}
-
-.about-us-tittle span {
-  display: block;
-  transform: translateX(20%);
-}
-
-.about-us-text {
-  display: flex;
-  flex-direction: column;
-  width: 42%;
-  margin-top: 23vh;
-  font-size: 20px;
-}
-
-.about-us-text p {
-  margin-top: 20px;
+.statue-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .ruler-container {
   position: absolute;
-  left: 16vw;
-  z-index: 2;
-  width: 16vw;
-  height: auto;
-  transform: translateY(130%);
+  width: auto;
+  height: 260px;
+  top: 240px;
+  left: -50px;
+  z-index: 1;
 }
-
-.ruler-image {
+.ruler-container img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
-.estatue-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 70vw;
-  z-index: 2;
-  transform: translateY(41%);
-  clip-path: inset(0 0 24% 0);
-}
-
-.estatue-wrapper {
-  position: relative;
   height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
-.estatue-image {
+.content-wrapper {
+  position: relative;
+  z-index: 5;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
   width: 100%;
-  height: auto;
-  max-height: none;
-  transform: translateX(-3%);
-  object-fit: cover;
-  display: block;
 }
 
-ul{
-  list-style-type: disc;
-  margin-left: 40px;
+.text-content {
+  display: flex;
+  flex-direction: row;
+  z-index: 3;
+  color: white;
 }
 
-//ÁREA DA RESPONSIVIDADE
+.tittle-box {
+  position: absolute;
+  top: 120px;
+  font-size: 4rem;
+  line-height: 1.2em;
+  font-family: "League Spartan", sans-serif;
+}
 
-@media (min-width: 1490px) and (max-width: 1700px) {
-  .column-container {
-    position: absolute;
-    width: 20%;
-    height: 197vh;
-    top: -40vh;
-    bottom: 0;
-    overflow: visible;
-    z-index: 8;
-  }
-  .background-img-bottom {
-    position: absolute;
-    bottom: -22vh;
-  }
+.tittle-box span {
+  margin-left: 70px;
+}
 
-  .left-column .column-image {
-    right: -140%;
-  }
+.description-box {
+  position: absolute;
+  width: 900px;
+  top: 280px;
+  right: -40px;
+  font-size: 1.4rem;
+  font-family: "League Spartan", sans-serif;
+}
 
-  .right-column .column-image {
-    left: -140%;
-  }
+.description-box p {
+  padding: 12px;
+}
 
-  .ruler-container {
-    position: absolute;
-    left: 16%;
-    z-index: 6;
-    width: 15.2vw;
-    height: auto;
-    transform: translateY(138%);
-  }
+.description-box ul {
+  margin-left: 50px;
+}
 
-  .estatue-container {
-    position: absolute;
-    bottom: -6vh;
-    left: 0;
-    width: 70vw;
-    height: 140vh;
-    z-index: 10;
-    transform: translateY(41%);
-    clip-path: inset(0 0 29% 0);
-  }
+.footer-background {
+  position: absolute;
+  top: 820px;
+  width: 100vw;
+  height: 180px;
+  background-image: url("https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/fundo-chao.webp");
+  z-index: 1;
+}
+
+
+@media (max-width: 1280px) {
+.pillar{
+  height: 850px;
+}
+
+.description-box{
+  width: 600px;
+  font-size: 1.2rem;
+  right: 100px;
+  top: 220px;
+}
+
+.statue-container{
+  height: 600px;
+  top: 380px;
+  left: -30px;
+}
+.ruler-container{
+  height: 160px;
+  top: 350px;
+  left: 130px;
+}
+.tittle-box{
+  font-size: 2.8rem;
+  top: 230px;
+  left: 140px;
+}
+
+.footer-background{
+  top: 650px;
+}
 }
