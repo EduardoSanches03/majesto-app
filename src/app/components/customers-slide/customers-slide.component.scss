@@ -178,20 +178,31 @@
     left: 0;
   }
   .customers-carousel-container {
-    left: -20px;
+    left: 2px;
   }
   :host ::ng-deep .carousel {
     margin-left: 0;
     margin-right: 0;
-    width: 60%;
+    width: 50%;
     transform: translateX(0);
   }
   .slide {
-    padding: 0 15px;
+    padding: 0 12px;
   }
 
   .logo-container {
     width: 180px;
     height: 180px;
+  }
+}
+
+
+@media (max-width: 390px){
+   .customers-carousel-container {
+    left: 5px;
+  }
+  .logo-container {
+    width: 165px;
+    height: 165px;
   }
 }
