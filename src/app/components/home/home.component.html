@@ -3,13 +3,11 @@
     #backgroundVideo
     autoplay
     muted="true"
-    [muted]="true"
     loop
     playsinline
     preload="metadata"
     class="background-video"
-    src="https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/corporative-video.webm"
-    [volume]="0"
+    src="https://res.cloudinary.com/dquoq5xn3/video/upload/v1762282965/corporative-video_v1_1080p_1_ma7q4q.mp4"
     (loadedmetadata)="ensureVideoMuted($event)"
     (canplay)="ensureVideoMuted($event)"
     (play)="ensureVideoMuted($event)"

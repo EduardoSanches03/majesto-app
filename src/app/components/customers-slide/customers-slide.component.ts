@@ -63,14 +63,14 @@ export class CustomersSlideComponent {
   };
 
   logos = [
-    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/10pasteis%20white.png',
-    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/apolar%20white.png',
-    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/asia%20white.png',
-    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/bubble%20white.png',
-    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/continental%20white.png',
-    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/cookie%20white.png',
-    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/luah%20white.png',
-    'https://pfpl3j0odur2kscj.public.blob.vercel-storage.com/Images/white%20logos/sirene%20white.png',
+    'https://res.cloudinary.com/dquoq5xn3/image/upload/v1762283797/10pasteis_white_lxyaid.png',
+    'https://res.cloudinary.com/dquoq5xn3/image/upload/v1762283809/apolar_white_nflh4w.png',
+    'https://res.cloudinary.com/dquoq5xn3/image/upload/v1762283807/asia_white_c09iuu.png',
+    'https://res.cloudinary.com/dquoq5xn3/image/upload/v1762283806/bubble_white_q0iiuu.png',
+    'https://res.cloudinary.com/dquoq5xn3/image/upload/v1762283802/continental_white_sgh6fl.png',
+    'https://res.cloudinary.com/dquoq5xn3/image/upload/v1762283787/cookie_white_e3vgns.png',
+    'https://res.cloudinary.com/dquoq5xn3/image/upload/v1762283780/luah_white_zdvcca.png',
+    'https://res.cloudinary.com/dquoq5xn3/image/upload/v1762283820/sirene_white_rsgnz6.png',
   ];
   next() {
     if (this.slickModal) {
