@@ -66,3 +66,13 @@ footer {
   gap: 20px;
   font-size: 30px;
 }
+
+
+@media (max-width: 430px){
+  footer {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 0;
+    gap: 20px;
+  }
+}

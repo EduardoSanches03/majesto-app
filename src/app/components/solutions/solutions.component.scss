@@ -127,3 +127,60 @@
     left: 40px;
   }
 }
+
+@media (max-width: 430px) {
+
+  .solutions{
+    flex-direction: column;
+  }
+  .augustus {
+    font-size: 1.5rem;
+  }
+  .spartan{
+    font-size: 3rem;
+  }
+  .red {
+    font-size: 2.8rem;
+  }
+
+  .solutions-text {
+    font-size: 1.2rem;
+    width: 90%;
+  }
+
+  .solutions-content {
+    left: 25px;
+  }
+
+  .red-line{
+    width: 80%;
+  }
+  .background-container {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+.solutions-hover {
+  margin-top: 30px;
+  left: 0;
+  }
+
+.solutions-hover div {
+    width: 350px;
+  }
+
+}

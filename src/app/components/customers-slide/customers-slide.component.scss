@@ -154,6 +154,44 @@
     left: 1rem;
   }
   .slide {
-  padding: 0 30px;
+    padding: 0 30px;
+  }
 }
+
+@media (max-width: 430px) {
+  .customers-slide {
+    height: auto;
+    flex-direction: column;
+    padding: 40px 0;
+  }
+  .customers-content {
+    left: 0;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .spartan {
+    font-size: 4rem;
+  }
+  .augustus {
+    font-size: 1.5rem;
+    left: 0;
+  }
+  .customers-carousel-container {
+    left: -20px;
+  }
+  :host ::ng-deep .carousel {
+    margin-left: 0;
+    margin-right: 0;
+    width: 60%;
+    transform: translateX(0);
+  }
+  .slide {
+    padding: 0 15px;
+  }
+
+  .logo-container {
+    width: 180px;
+    height: 180px;
+  }
 }

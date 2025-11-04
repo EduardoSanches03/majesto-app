@@ -151,3 +151,33 @@
   top: 650px;
 }
 }
+
+
+@media (max-width: 430px) {
+.pillar{
+  display : none;
+}
+
+.description-box{
+  width: 400px;
+  font-size: 1.2rem;
+  right: 10px;
+  top: 170px;
+}
+
+.statue-container{
+  display: none;
+}
+.ruler-container{
+   display: none;
+}
+.tittle-box{
+  font-size: 2.8rem;
+  top: 60px;
+  left: 50px;
+}
+
+.footer-background{
+  top: 650px;
+}
+}
