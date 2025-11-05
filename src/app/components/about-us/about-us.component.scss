@@ -118,9 +118,85 @@
   z-index: 1;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1600px) {
+  .about-us-section {
+    height: 900px;
+  }
   .pillar {
+    height: 950px;
+  }
+
+  .description-box {
+    width: 700px;
+    font-size: 1.3rem;
+    right: 80px;
+    top: 240px;
+  }
+
+  .statue-container {
+    height: 700px;
+    top: 400px;
+    left: -100px;
+  }
+  .ruler-container {
+    height: 200px;
+    top: 360px;
+    left: 80px;
+  }
+  .tittle-box {
+    font-size: 3.5rem;
+    top: 200px;
+    left: 120px;
+  }
+
+  .footer-background {
+    top: 740px;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1400px) {
+  .about-us-section {
     height: 850px;
+  }
+  .pillar {
+    height: 900px;
+  }
+
+  .description-box {
+    width: 650px;
+    font-size: 1.2rem;
+    right: 100px;
+    top: 220px;
+  }
+
+  .statue-container {
+    height: 700px;
+    top: 390px;
+    left: -30px;
+  }
+  .ruler-container {
+    height: 180px;
+    top: 350px;
+    left: 130px;
+  }
+  .tittle-box {
+    font-size: 3.2rem;
+    top: 220px;
+    left: 130px;
+  }
+
+  .footer-background {
+    top: 700px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .about-us-section {
+    height: 800px;
+  }
+
+  .pillar {
+    height: 860px;
   }
 
   .description-box {
@@ -147,7 +223,43 @@
   }
 
   .footer-background {
-    top: 650px;
+    top: 700px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .about-us-section {
+    height: 750px;
+  }
+  .pillar {
+    height: 800px;
+  }
+
+  .description-box {
+    width: 500px;
+    font-size: 1.1rem;
+    right: 120px;
+    top: 120px;
+  }
+
+  .statue-container {
+    height: 680px;
+    top: 320px;
+    left: 0;
+  }
+  .ruler-container {
+    height: 220px;
+    top: 260px;
+    left: 150px;
+  }
+  .tittle-box {
+    font-size: 3.4rem;
+    top: 140px;
+    left: 140px;
+  }
+
+  .footer-background {
+    top: 600px;
   }
 }
 
